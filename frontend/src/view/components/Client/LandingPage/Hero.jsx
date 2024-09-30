@@ -102,7 +102,7 @@ const Hero = () => {
             <img src={fifty} alt="50+ Experts Icon" className="w-[180px] h-[120px]" />
           </div>
           <div className="absolute top-4 right-20 hidden sm:block">
-            <img src={twenty} alt="20+ Solutions Icon" className="w-[170px] h-[280px]" />
+            <img src={twenty} alt="20+ Solutions Icon" className="w-[200px] h-[280px]" />
           </div>
           <div className="absolute bottom-1 left-[200px] hidden sm:block">
             <img src={proj_man} alt="Project Management Tool Icon" className="w-[400px] h-[130px]" />

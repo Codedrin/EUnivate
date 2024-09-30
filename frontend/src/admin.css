@@ -60,3 +60,129 @@
 }
 
 
+/* Dashboard.css */
+.activity-title {
+    margin-right: 325px; 
+}
+
+.projects-div {
+ margin-left: 585px;
+ max-height: fit-content;
+}
+
+.today-task-div {
+    height: auto; /* Increase the height as needed */
+    overflow-y: auto; /* Ensure content can scroll if it's too tall */
+}
+
+
+/* CSS for Admin Messages */
+/* SidebarMessage Styles */
+.sidebar-message-content {
+  position: relative;
+  background-color: #fff;
+  max-height: max-content;
+  top: -16px;
+  bottom: 40px;
+  right: 24px;
+  width:320px;
+  height: 550px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.sidebar-message-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.sidebar-message-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.sidebar-message-text {
+  font-size: 0.875rem;
+}
+
+.sidebar-message-team-label {
+  font-size: 0.75rem;
+  background-color: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.member-count {
+  font-size: 1.1rem;
+  margin-left: 10px;
+}
+
+.sidebar-message-member-name {
+  font-size: 0.875rem;
+}
+
+.sidebar-message-online-icon {
+  font-size: 0.75rem;
+  color: #10b981; /* Tailwind green-500 */
+}
+
+.sidebar-message-offline-icon {
+  font-size: 0.75rem;
+  color: #d1d5db; /* Tailwind gray-300 */
+}
+
+/* MessageContent Styles */
+.message-content {
+  background-color: #f3f4f6;
+  max-width: auto;
+  height: 83%; 
+  width: 692px;
+  margin: 0 auto; 
+  padding: 1rem;
+  position: absolute;
+  top: 89px;
+  bottom: 40px; 
+  right: 1px;
+}
+
+/* MessageContent Media Modal Styles */
+.modal-content {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-media {
+  width: 100%;
+  height: auto;
+}
+
+.image-fullscreen {
+  cursor: pointer;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}

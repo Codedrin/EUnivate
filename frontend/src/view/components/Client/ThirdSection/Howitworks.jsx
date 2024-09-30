@@ -2,8 +2,9 @@ import React from "react";
 
 const Howitworks = () => {
   return (
+    
     <div className="ms-2 me-2 lg:ms-7 lg:me-7">
-      <div className="text-red-gradient font-inter text-[16px] font-semibold" style={{ paddingLeft: "0.1rem" }}>
+      <div className="text-red-gradient font-inter text-2xl font-bold" style={{ paddingLeft: "0.1rem" }}>
         How It Works
       </div>
       <div className="mt-0 font-inter text-[24px] lg:text-[36px] font-semibold">

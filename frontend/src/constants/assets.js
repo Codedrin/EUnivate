@@ -73,6 +73,8 @@ import logo10_ln4 from '../assets/LogoSlides/logo10_ln4.png';
 import logo33_ln4 from '../assets/LogoSlides/logo33_ln4.png';
 import logo28_ln4 from '../assets/LogoSlides/logo28_ln4.png';
 
+/* Services */
+import Services_IMG from'../assets/Services_IMG.png';
 /* Products */
 import p1 from '../assets/p1.jpg';
 import p2 from '../assets/p2.jpg';
@@ -93,6 +95,10 @@ import prof4 from '../assets/prof4.jpg';
 
 //Quotation Step4
 import Step4 from '../assets/Step4-quotation.svg';
+import waitingverification from '../assets/verifying.gif';
+import emailsent from '../assets/emailsent.png';
+import submitquotation from '../assets/submitquotation.png';
+
 
 //Login Back
 import Loginback from '../assets/loginback.png';
@@ -123,13 +129,56 @@ import dashboard_logo from '../assets/dashboard_logo.png';
 import dashboard_sidenav_icon from '../assets/dashboard_sidenav_icon.svg';
 import dashboard_sidenav_icon_hover from '../assets/dashboard_sidenav_icon_hover.svg';
 
+/* ICON ADMIN */
+import activity_icon from '../assets/icons/activity-icon.png';
+import messages_icon from '../assets/icons/messages-icon.png';
+import people_icon from '../assets/icons/people-icon.png';
+import project_icon from '../assets/icons/project-icon.png';
+import settings_icon from '../assets/icons/settings-icon.png';
+import task_icon from '../assets/icons/task-icon.png';
+
+/* RED ICON ADMIN */
+import activity_red from '../assets/Redicon/activity-red.png';
+import dashboard_red from '../assets/Redicon/dashboard-red.png';
+import messages_red from '../assets/Redicon/messages-red.png';
+import people_red from '../assets/Redicon/people-red.png';
+import project_red from '../assets/Redicon/project-red.png';
+import settings_red from '../assets/Redicon/settings-red.png';
+import task_red from '../assets/Redicon/task-red.png';
+
+/* ADMIN SETTINGS IMG */
+import User from '../assets/User.png';
+// Admin Dashboard
+import i1 from '../assets/i1.jpg';  // Import your images
+import i2 from '../assets/i2.jpg';
+import i3 from '../assets/i3.jpg';
+import i4 from '../assets/i4.jpg';
 
 
 export {
+  /* RED ICON ADMIN */
+  activity_red,
+  dashboard_red,
+  messages_red,
+  people_red,
+  project_red,
+  settings_red,
+  task_red,
+
+  /* ICON ADMIN */
+  activity_icon,
+  messages_icon,
+  people_icon,
+  project_icon,
+  settings_icon,
+  task_icon,
+
+  /* ADMIN SETTINGS IMG */
+  User,
   
-   yellow_gradient,
-   red_gradient,
-   loop,
+    yellow_gradient,
+    red_gradient,
+    loop,
     cisco,
     close,
     downArrow,
@@ -146,6 +195,9 @@ export {
     indMeets,
     futureSolution,
     OksYun,
+
+      /* Services */
+      Services_IMG,
 
      /* FOOTER IMG */
     webinar1,
@@ -170,7 +222,11 @@ export {
     dashboard_sidenav_icon,
     dashboard_sidenav_icon_hover,
     
-  
+    //Admin Dashboard
+    i1,
+    i2,
+    i3,
+    i4,
 
 
     // LogoSlides Assets - Line 1
@@ -248,6 +304,9 @@ export {
       
       //Quotation Step4
       Step4,
+      waitingverification,
+      emailsent,
+      submitquotation,
 
             //Quotation Step4
             Loginback

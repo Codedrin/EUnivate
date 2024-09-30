@@ -30,7 +30,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className={`${styles.flexStart}`}>
+      <div className={`${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Hero />
         </div>
@@ -45,7 +45,7 @@ const LandingPage = () => {
       </div>
 
       <div className="w-full overflow-hidden">
-        <div className={`${styles.marginY} ${styles.paddingX} ${styles.flexStart}`}>
+        <div className={`${styles.marginY} ${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
             <Howitworks />
           </div>
@@ -76,7 +76,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexStart}`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`} ref={ctaRef} id="CTA">
           <CTA />
           <Footer />

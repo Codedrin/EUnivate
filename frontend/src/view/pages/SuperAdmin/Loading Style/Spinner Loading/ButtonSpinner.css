@@ -1,0 +1,19 @@
+/* ButtonSpinner.css */
+.button-spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3); /* Light white border */
+    border-top: 3px solid #fff; /* Full white color for the top part */
+    border-radius: 50%; /* Make it circular */
+    width: 20px;
+    height: 20px;
+    animation: spin 0.8s linear infinite; /* Spin the circle */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

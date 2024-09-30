@@ -1,6 +1,6 @@
 import React from 'react'
 import { webinar1, webinar2, webinar3 } from '../../../../constants/assets';
-import { FaArrowUp } from 'react-icons/fa';
+
 
 const Webinar_LAyout = () => {
     const scrollToTop = () => {
@@ -9,7 +9,7 @@ const Webinar_LAyout = () => {
     
       return (
         <section >
-          <div className="flex flex-col lg:flex-row items-start mt-4 gap-4">
+          <div className="flex flex-col lg:flex-row items-start mt-4 gap-4 mb-4">
             <div className="flex flex-col gap-4 w-full lg:w-1/2">
               {/* Webinar 3 */}
               <div className="flex flex-col lg:flex-row items-start gap-4 w-full lg:order-none">

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
-const SuperAdminRoute = ({ children }) => {
+const SuperadminAuth = ({ children }) => {
   const user = JSON.parse(localStorage.getItem('user'));
-  
+
+
+
   if (!user) {
     // User is not authenticated
     return <Navigate to="/login" />;
@@ -18,4 +20,6 @@ const SuperAdminRoute = ({ children }) => {
   return children;
 };
 
-export default SuperAdminRoute;
+
+
+export default SuperadminAuth;

@@ -41,6 +41,7 @@ const QuotationStep1 = ({ formData, setFormData, nextStep }) => {
                                 <input
                                     type="text"
                                     placeholder="Name"
+                                    name='name'
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                     className="w-full pl-3 p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -53,6 +54,7 @@ const QuotationStep1 = ({ formData, setFormData, nextStep }) => {
                                 <FontAwesomeIcon icon={faEnvelope} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                                 <input
                                     type="email"
+                                    name='email'
                                     placeholder="Email address"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -69,6 +71,7 @@ const QuotationStep1 = ({ formData, setFormData, nextStep }) => {
                                 <input
                                     type="text"
                                     placeholder="Phone Number"
+                                    name='phone'
                                     value={formData.phone}
                                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                     className="w-full pl-3 p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -82,6 +85,7 @@ const QuotationStep1 = ({ formData, setFormData, nextStep }) => {
                                 <input
                                     type="text"
                                     placeholder="Company name"
+                                    name='company'
                                     value={formData.company}
                                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                                     className="w-full pl-3 p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"

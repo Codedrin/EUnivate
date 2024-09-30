@@ -1,0 +1,65 @@
+/* Full-page overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* High z-index to ensure it overlays everything */
+}
+
+/* Centered white box */
+.bar-loading-box {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bar loading animation */
+.bar-loading {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 1.5em; /* Reduced width */
+}
+
+.bar-loading span {
+    width: 0.3em;
+    height: 0.8em; /* Reduced height */
+    background-color: #ffffff;
+}
+
+.bar-loading span:nth-of-type(1) {
+    animation: grow 1s -0.45s ease-in-out infinite;
+}
+
+.bar-loading span:nth-of-type(2) {
+    animation: grow 1s -0.3s ease-in-out infinite;
+}
+
+.bar-loading span:nth-of-type(3) {
+    animation: grow 1s -0.15s ease-in-out infinite;
+}
+
+.bar-loading span:nth-of-type(4) {
+    animation: grow 1s ease-in-out infinite;
+}
+
+@keyframes grow {
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.5); /* Reduced scale */
+    }
+}

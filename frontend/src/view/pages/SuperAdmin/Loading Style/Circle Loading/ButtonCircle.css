@@ -1,0 +1,56 @@
+/* ButtonCircle.css */
+.loading-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+
+.balls {
+    width: 4em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.balls div {
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
+    background-color: #d34040;
+}
+
+.balls div:nth-of-type(1) {
+    transform: translateX(-100%);
+    animation: left-swing 0.5s ease-in alternate infinite;
+}
+
+.balls div:nth-of-type(3) {
+    transform: translateX(-95%);
+    animation: right-swing 0.5s ease-out alternate infinite;
+}
+
+@keyframes left-swing {
+    50%, 100% {
+        transform: translateX(95%);
+    }
+}
+
+@keyframes right-swing {
+    50% {
+        transform: translateX(-95%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.loading-text {
+    margin-top: 8px; /* Space between spinner and text */
+    font-size: 16px; /* Adjust font size as needed */
+    color: #000; /* Text color */
+    text-align: center; /* Center the text */
+}

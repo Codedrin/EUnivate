@@ -13,7 +13,7 @@ const About_Layout = () => {
             <span className="mt-4 md:mt-0 md:ml-1 relative z-20 text-center md:text-left hidden">
               Bridging the Gap
             </span>
-            <span className="absolute left-0 top-full mt-1 flex flex-col z-10 hidden md:flex">
+            <span className="absolute left-0 top-full mt-1 flex-col z-10 hidden md:flex">
               <span>Between Innovation</span>
               <span className="mt-1">and Industry</span>
             </span>
@@ -38,7 +38,7 @@ const About_Layout = () => {
           </div>
         </div>
 
-        <div className="flex justify-end ml-auto hidden md:flex">
+        <div className=" justify-end ml-auto hidden md:flex">
           <div className="flex flex-col items-end space-y-2 ml-auto">
             <img
               src={image1}

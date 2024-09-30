@@ -331,3 +331,83 @@
     text-align: center; /* Center the text in the button */
   }
 }
+/*Products */
+
+.professors-section-products {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+.professor-cards-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.prof-products {
+  width: 550px;
+  margin: 0 auto; /* Centers the element horizontally */
+  margin-bottom: 30px; /* Adds a bottom margin of 30px */
+}
+.professor-card-products {
+  background-color: #fff;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+}
+.professor-image-products {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto; /* Center the image */
+}
+.professor-name-products {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.professor-profession-products {
+  color: red;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+.professor-bio-products {
+  font-size: 0.875rem;
+  margin-top: 10px;
+}
+.social-icons-products {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.social-link-products {
+  transition: color 0.3s ease;
+}
+.social-icon-products {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+  /* Responsive Adjustments */
+        @media (max-width: 576px) {
+        .professors-products{
+        text-align: left;
+        }
+        .prof-products {
+        font-size: 1rem;
+        padding-right: 100px;
+        text-align: left;
+        line-height: 1.6;
+        }
+        .professors-section-products  {
+        margin-bottom: -15 0px;
+        }
+      }
+
+/* Add this to your global styles or a CSS module */
+.carousel-item {
+  flex-shrink: 0; /* Prevent items from shrinking */
+  min-width: 120px; /* Adjust based on the desired item width */
+}

@@ -1,52 +1,67 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark as farBookmark } from '@fortawesome/free-regular-svg-icons';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const Showcase = ({ showcase }) => {
+const Showcase = () => {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/users/projects');
+        setProjects(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+        setError('Failed to fetch projects');
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (loading) {
+    return <p>Loading projects...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
-    <div className="bg-white rounded-xl shadow-lg p-4 relative">
+    <div className="container mx-auto px-4 py-12">
+      {/* Header */}
+      <header className="mb-6">
+        <h1 className="text-2xl font-bold">Project Showcase</h1>
+      </header>
 
-      {/* Save/Bookmark Icon */}
-      <div className="absolute top-4 right-4">
-        <FontAwesomeIcon icon={farBookmark} className="text-gray-500 w-6 h-6" />
-      </div>
-
-      {/* Main Image Section */}
-      <div className="flex justify-center items-center mt-12">
-        <img
-          src={showcase.imageUrl}
-          alt={showcase.title}
-          className="w-full h-56 object-cover rounded-xl"
-        />
-      </div>
-
-      <div className="mt-6 text-start">
-        {/* Title and Description */}
-        <h3 className="text-xl font-bold text-gray-900">{showcase.title}</h3>
-        <p className="text-gray-600">{showcase.description}</p>
-
-        {/* Tags */}
-        <div className="mt-4 flex justify-start space-x-4">
-          <span className="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">
-            {showcase.projectType}
-          </span>
-          <span className="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">
-            {showcase.course}
-          </span>
-            {/* Team Members */}
-
-        </div>
-
-        <div className="mt-4 flex justify-start">
-          {showcase.teamMembers.map((member, index) => (
-            <img
-              key={index}
-              src={member}
-              alt="Team Member"
-              className="w-8 h-8 rounded-full border-2 border-white"
-            />
-          ))}
-        </div>
+      {/* Project Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
+          <div key={project._id} className="bg-white shadow-lg rounded-lg overflow-hidden">
+            {project.image && project.image.url ? (
+              <img 
+                src={project.image.url} 
+                alt={project.projectName} 
+                className="w-full h-48 object-cover"
+              />
+            ) : (
+              <img 
+                src="https://via.placeholder.com/400" 
+                alt="Placeholder" 
+                className="w-full h-48 object-cover"
+              />
+            )}
+            <div className="p-4">
+              <h2 className="text-lg font-semibold text-gray-700">{project.projectName}</h2>
+              <p className="text-gray-500 mt-2">{project.description}</p>
+              <p className="text-xs text-gray-500 mt-2">Team Members: {project.teamMembers}</p>
+              <p className="text-xs text-gray-500 mt-2">Adviser: {project.adviser}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
