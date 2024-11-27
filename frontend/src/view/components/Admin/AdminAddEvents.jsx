@@ -57,7 +57,7 @@ const AdminAddEvents = () => {
         image: imageUrl ? { url: imageUrl, publicId: selectedImage.name } : null,
       };
 
-      const response = await axios.post('http://localhost:5000/api/users/addevent', eventData);
+      const response = await axios.post('https://eunivate-jys4.onrender.com/api/users/addevent', eventData);
 
       console.log(response.data);
       setLoading(false);

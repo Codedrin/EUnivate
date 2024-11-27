@@ -13,7 +13,7 @@ const RaciMatrixG = () => {
     if ((!initialTasks || initialTasks.length === 0) && projectId) {
       const fetchTasks = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/users/sa-tasks/${projectId}`);
+          const response = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${projectId}`);
           setTasks(response.data.data); // Fetch tasks and set state
         } catch (error) {
           console.error('Error fetching tasks:', error);

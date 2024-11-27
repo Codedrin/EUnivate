@@ -36,7 +36,7 @@ const ProjectDetails = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             // Existing fetch logic
-            const response = await axios.get(`http://localhost:5000/api/users/sa-tasks/${projectId}`);
+            const response = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${projectId}`);
             setTasks(response.data.data);
         };
         fetchTasks();
@@ -54,7 +54,7 @@ const ProjectDetails = () => {
                     return;
                 }
 
-                const response = await axios.get(`http://localhost:5000/api/users/sa-getnewproject/${projectId}`, {
+                const response = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-getnewproject/${projectId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -106,7 +106,7 @@ const ProjectDetails = () => {
                     }
     
                     // Include the workspaceId in the request if available
-                    const response = await axios.get('http://localhost:5000/api/users/invited', {
+                    const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/invited', {
                         headers: { Authorization: `Bearer ${accessToken}` },
                         params: { workspaceId: project.workspaceId }  // Pass workspaceId as a query parameter
                     });
@@ -160,7 +160,7 @@ const ProjectDetails = () => {
                 throw new Error('No valid user IDs to add.');
             }
     
-            const response = await axios.post('http://localhost:5000/api/users/add-member-to-project', {
+            const response = await axios.post('https://eunivate-jys4.onrender.com/api/users/add-member-to-project', {
                 projectId: project._id,
                 users: userIds
             }, {

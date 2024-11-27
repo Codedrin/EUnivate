@@ -137,7 +137,7 @@ const SettingProfile_Members = () => {
 
     try {
         const response = await axios.put(
-            `http://localhost:5000/api/users/${storedUser._id}`,
+            `https://eunivate-jys4.onrender.com/api/users/${storedUser._id}`,
             updatedUser
         );
 
@@ -181,15 +181,15 @@ const SettingProfile_Members = () => {
             return;
         }
   
-        const response = await axios.put(
-            `http://localhost:5000/api/users/${storedUser._id}/password`,
-            { newPassword },
-            {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-                },
-            }
-        );
+      const response = await axios.put(
+        `https://eunivate-jys4.onrender.com/api/users/${storedUser._id}/password`,
+        { newPassword },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+        }
+      );
   
         if (response.status === 200) {
             // Show success toast notification

@@ -9,7 +9,7 @@ const Showcase = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/users/projects');
+        const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/projects');
         setProjects(response.data);
         setLoading(false);
       } catch (error) {

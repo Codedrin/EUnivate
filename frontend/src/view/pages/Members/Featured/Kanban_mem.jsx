@@ -24,7 +24,7 @@ const Kanban_mem = () => {
       if (!projectId) return console.error('Project ID is not defined');
       try {
         const response = await axios.get(`http://localhost:5000/api/users/sa-tasks/${projectId}`);
-        setTasks(response.data.data); // Update the tasks state with fetched data
+        setTasks(response.data.data);
       } catch (error) {
         console.error('Error fetching tasks:', error);
       }
@@ -49,26 +49,7 @@ const Kanban_mem = () => {
 
   const updateTaskStatus = async (taskId, newStatus, modifiedBy) => {
     try {
-      // Capture the user details
-      const user = JSON.parse(localStorage.getItem('user'));
-      const modifiedUser = {
-        username: `${user.firstName} ${user.lastName}`,
-        profilePicture: user.profilePicture?.url || user.profilePicture || 'default_image_url.png',
-      };
-  
-      // Update the task status on the server and include the history entry
-      await axios.patch(`http://localhost:5000/api/users/sa-tasks/${taskId}`, {
-        status: newStatus,
-        modifiedBy: modifiedBy,
-        history: [
-          ...(tasks.find(task => task._id === taskId).history || []), // Include existing history
-          {
-            modifiedBy: modifiedUser,
-            modifiedAt: new Date().toISOString(),
-            changes: JSON.stringify({ status: newStatus }),
-          },
-        ],
-      });
+      await axios.patch(`http://localhost:5000/api/users/sa-tasks/${taskId}`, { status: newStatus });
     } catch (error) {
       console.error('Error updating task status:', error);
     }

@@ -29,7 +29,17 @@ const Ongoing_Project = ({ projects, taskDetails, calculateProgress }) => {
 
                 console.log(`Fetching projects for workspace: ${selectedWorkspace.workspaceTitle} (ID: ${selectedWorkspace._id})`);
 
-                // The fetched projects are already passed as props, so no need to set them again
+                // Fetch the ongoing projects related to the selected workspace
+                const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/sa-getnewproject', {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                    params: {
+                        workspaceId: selectedWorkspace._id,  // Filter by workspace ID
+                    }
+                });
+
+                setProjects(response.data);  // Store the fetched projects in the state
                 setLoading(false);  // End loading
             } catch (error) {
                 console.error('Error fetching projects:', error);

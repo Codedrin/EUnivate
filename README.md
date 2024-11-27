@@ -36,7 +36,7 @@ Before setting up the EUnivate web app, make sure you have the following softwar
 3. Run the Frontend Server:
     - Start the frontend development server using:
       npm start
-    - After successful installation, the frontend should automatically open in your default web browser at http://localhost:5173. If it doesn't, you can manually open your browser and go to that URL.
+    - After successful installation, the frontend should automatically open in your default web browser at https://www.eunivate.com. If it doesn't, you can manually open your browser and go to that URL.
 
 ## Backend Setup
 1. Navigate to the Backend Directory:

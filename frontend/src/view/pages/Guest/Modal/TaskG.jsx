@@ -31,7 +31,7 @@ const TaskG = () => {
                     return;
                 }
 
-                const response = await axios.get('http://localhost:5000/api/users/sa-getnewproject', {
+                const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/sa-getnewproject', {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -40,7 +40,7 @@ const TaskG = () => {
                 const tasksList = [];
                 await Promise.all(
                     response.data.map(async (project) => {
-                        const taskResponse = await axios.get(`http://localhost:5000/api/users/sa-tasks/${project._id}`);
+                        const taskResponse = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${project._id}`);
                         const tasksWithProject = taskResponse.data.data.map(task => ({
                             ...task,
                             projectName: project.projectName,

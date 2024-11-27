@@ -1,34 +1,41 @@
 import User from "../../models/Client/userModels.js";
 import bcrypt from 'bcrypt';
 
+import jwt from 'jsonwebtoken';
+
+// Generate JWT Token
+export const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+};
 
 
 
 // Update user information
 export const updateUser = async (req, res) => {
-  const { id } = req.params;  // User ID passed as a parameter
-  const { firstName, lastName, email, phoneNumber, username, profilePicture } = req.body;
+    const { id } = req.params;  // User ID passed as a parameter
+    const { firstName, lastName, email, phoneNumber, username, profilePicture } = req.body; // Data to update
 
-  try {
+    try {
+      // Find the user by ID and update their information
       const updatedUser = await User.findByIdAndUpdate(
-          id,
-          { firstName, lastName, email, phoneNumber, username, profilePicture },
-          { new: true }
+        id,
+        {
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          username,
+          profilePicture, // If this is a URL to the profile picture
+        },
+        { new: true }  // Return the updated document
       );
 
-      if (!updatedUser) {
-          return res.status(404).json({ message: 'User not found' });
-      }
-
-      res.status(200).json({ user: updatedUser });
-  } catch (error) {
+      // Return the updated user information
+      res.status(200).json(updatedUser);
+    } catch (error) {
       res.status(500).json({ message: 'Error updating user information', error });
-  }
+    }
 };
-
-
-
-
         export const updateUserPassword = async (req, res) => {
           const { id } = req.params;  // User ID passed as a parameter
           const { newPassword } = req.body; // New password from the request body

@@ -39,7 +39,7 @@ const ProjectG = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:5000/api/users/sa-getnewproject', {
+        const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/sa-getnewproject', {
           headers: { Authorization: `Bearer ${accessToken}` },
           params: { workspaceId },
         });
@@ -68,7 +68,7 @@ const ProjectG = () => {
       const counts = {};
       for (let project of projects) {
         try {
-          const response = await axios.get(`http://localhost:5000/api/users/sa-tasks/${project._id}`);
+          const response = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${project._id}`);
           const totalTasks = response.data.data.length;
           const doneTasks = response.data.data.filter(task => task.status === 'Done').length;
           counts[project._id] = { totalTasks, doneTasks };
@@ -96,7 +96,7 @@ const ProjectG = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:5000/api/users/workspaces', {
+        const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/workspaces', {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
@@ -116,7 +116,7 @@ const ProjectG = () => {
 
   const handleProjectClick = async (project) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/users/sa-tasks/${project._id}`);
+      const response = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${project._id}`);
       const tasks = response.data.data;
       setTasks(tasks);
       setSelectedProject(project._id);

@@ -64,7 +64,7 @@ const EditProjectModal = ({ project, onClose, onSave }) => {
       };
 
       const response = await axios.put(
-        `http://localhost:5000/api/users/projects/${project._id}`,
+        `https://eunivate-jys4.onrender.com/api/users/projects/${project._id}`,
         updatedProject
       );
 

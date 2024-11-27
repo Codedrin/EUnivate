@@ -88,7 +88,7 @@ export const forgotPassword = async (req, res) => {
     user.resetPasswordExpire = resetTokenExpire;
     await user.save();
 
-    const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+    const resetUrl = `https://www.eunivate.com/reset-password/${resetToken}`;
     const message = `You requested a password reset. Please make a PUT request to: \n\n ${resetUrl}`;
 
     await sendEmail({

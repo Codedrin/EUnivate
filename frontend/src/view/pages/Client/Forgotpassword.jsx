@@ -15,7 +15,7 @@ const ForgotPassword = () => {
     } else {
       setError(null);
       try {
-        const response = await fetch('http://localhost:5000/api/users/forgot-password', {
+        const response = await fetch('https://eunivate-jys4.onrender.com/api/users/forgot-password', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

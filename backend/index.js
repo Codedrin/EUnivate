@@ -22,7 +22,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:5173'], 
+    origin: ['https://www.eunivate.com'], 
     methods: ["GET", "POST", "DELETE", "PATCH", "UPDATE"]
   }
 });
@@ -113,7 +113,7 @@ app.get('/api/users/quotation/confirm/', confirmQuotationEmail);
 
 app.get('/quotation-complete', (req, res) => {
 // res.send('Quotation verification complete');
-res.redirect(`http://localhost:5173/quotation-complete`);
+res.redirect(`https://www.eunivate.com/quotation-complete`);
 });
 
 

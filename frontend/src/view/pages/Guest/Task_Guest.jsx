@@ -46,7 +46,7 @@ const Task_Guest = () => {
               }
 
               // Fetch projects associated with the selected workspace
-              const projectResponse = await axios.get('http://localhost:5000/api/users/sa-getnewproject', {
+              const projectResponse = await axios.get('https://eunivate-jys4.onrender.com/api/users/sa-getnewproject', {
                   headers: {
                       Authorization: `Bearer ${accessToken}`,
                   },
@@ -58,7 +58,7 @@ const Task_Guest = () => {
               const tasksList = [];
               await Promise.all(
                   projectResponse.data.map(async (project) => {
-                      const taskResponse = await axios.get(`http://localhost:5000/api/users/sa-tasks/${project._id}`, {
+                      const taskResponse = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${project._id}`, {
                           headers: {
                               Authorization: `Bearer ${accessToken}`, // Authorization header
                           },
