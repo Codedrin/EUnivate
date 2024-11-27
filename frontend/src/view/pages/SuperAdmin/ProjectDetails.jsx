@@ -449,7 +449,7 @@ const ProjectDetails = () => {
               />
               <i className="fas fa-pencil-alt absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
             </div>
-            <h3 className="mt-4 mb-2">Memebers</h3>
+            <h3 className="mt-4 mb-2">Members</h3>
             <ul>
               {addedMembers.map((member) => (
                 <li
