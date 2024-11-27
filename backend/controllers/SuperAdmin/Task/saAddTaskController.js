@@ -555,15 +555,19 @@ export const getTaskComments = async (req, res) => {
 export const deleteTaskKanban = async (req, res) => {
   try {
     const { taskId } = req.params; // Task ID from the URL
+    console.log("Received taskId:", taskId); // Log received task ID
 
     // Check if task exists before attempting deletion
     const task = await saAddTask.findByIdAndDelete(taskId);
+    console.log("Task fetched for deletion:", task); // Log task fetched
 
     if (!task) {
+      console.warn("Task not found for ID:", taskId); // Warn if task is not found
       return res.status(404).json({ message: "Task not found" });
     }
 
     // Emit socket event to notify clients about task deletion
+    console.log("Emitting task-deleted event for taskId:", taskId);
     io.emit("task-deleted", taskId); // Send taskId to inform clients
 
     res.status(200).json({
@@ -571,7 +575,7 @@ export const deleteTaskKanban = async (req, res) => {
       message: "Task deleted successfully",
     });
   } catch (error) {
-    console.error("Error deleting task:", error);
+    console.error("Error deleting task:", error); // Log the error stack trace
     res.status(500).json({
       success: false,
       message: "Server Error. Could not delete task.",
@@ -579,3 +583,4 @@ export const deleteTaskKanban = async (req, res) => {
     });
   }
 };
+
