@@ -153,13 +153,14 @@ const AdminNavbar = ({ isAccountDropdownOpen, toggleAccountDropdown }) => {
             }`}
             style={{ top: '100%', zIndex: 10000 }} 
           >
-            <a
+            {/* <a
               href="#"
               className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
               onClick={handleProfileClick}
             >
               Profile
-            </a>
+            </a> */}
+            
             <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-gray-100" onClick={handleLogout}>
               Logout
             </a>
