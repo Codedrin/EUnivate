@@ -62,6 +62,7 @@ export const getAllProjects = async (req, res) => {
           new Map(allProjects.map(project => [project._id.toString(), project])).values()
       );
 
+      
       if (uniqueProjects.length === 0) {
           return res.status(404).json({ message: 'No projects found' });
       }
