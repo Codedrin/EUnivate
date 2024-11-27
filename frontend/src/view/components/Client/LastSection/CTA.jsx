@@ -44,7 +44,7 @@ const Contact = () => {
     setLoading(true); // Start loading
 
     try {
-      const response = await fetch('https://eunivate-jys4.onrender.com/api/users/contactEunivate', {
+      const response = await fetch('http://localhost:5000/api/users/contactEunivate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

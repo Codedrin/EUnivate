@@ -17,7 +17,7 @@ const EventsAdmin = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/events');
+        const response = await axios.get('http://localhost:5000/api/users/events');
         setWebinars(response.data);
       } catch (error) {
         console.error('Error fetching events:', error);
@@ -29,7 +29,7 @@ const EventsAdmin = () => {
 
   const handleDelete = async (eventId) => {
     try {
-      await axios.delete(`https://eunivate-jys4.onrender.com/api/users/events/${eventId}`);
+      await axios.delete(`http://localhost:5000/api/users/events/${eventId}`);
       setWebinars(webinars.filter(event => event._id !== eventId));
     } catch (error) {
       console.error('Error deleting event:', error);

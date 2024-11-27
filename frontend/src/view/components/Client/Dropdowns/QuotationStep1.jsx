@@ -16,7 +16,7 @@ const QuotationStep1 = ({ formData, setFormData, nextStep }) => {
             }
           
             try {
-              const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/current-user', {
+              const response = await axios.get('http://localhost:5000/api/users/current-user', {
                 headers: {
                   Authorization: `Bearer ${token}`, // Add the token here
                 },

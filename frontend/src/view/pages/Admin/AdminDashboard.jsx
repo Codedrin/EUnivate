@@ -15,7 +15,7 @@ const AdminDashboard = () => {
     useEffect(() => {
         const fetchQuotations = async () => {
             try {
-                const response = await fetch('https://eunivate-jys4.onrender.com/api/users/quotations');
+                const response = await fetch('http://localhost:5000/api/users/quotations');
                 const data = await response.json();
                 
                 const sortedQuotations = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -59,7 +59,7 @@ const AdminDashboard = () => {
     const handleDelete = async () => {
         try {
             await Promise.all(selectedIds.map(id => 
-                fetch(`https://eunivate-jys4.onrender.com/api/users/quotations/${id}`, {
+                fetch(`http://localhost:5000/api/users/quotations/${id}`, {
                     method: 'DELETE',
                     headers: { 'Content-Type': 'application/json' },
                 })
@@ -83,7 +83,7 @@ const AdminDashboard = () => {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const response = await fetch('https://eunivate-jys4.onrender.com/api/users/stats');
+                const response = await fetch('http://localhost:5000/api/users/stats');
                 const data = await response.json();
                 setStats([
                     { label: 'Quotations', value: data.quotations }, 

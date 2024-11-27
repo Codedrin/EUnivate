@@ -28,7 +28,7 @@ const Activity = () => {
                 setProfilePicture(user.profilePicture?.url || user.profilePicture || defaultProfilePictureUrl);
 
                 // Fetch projects based on the selected workspace
-                const projectResponse = await axios.get('https://eunivate-jys4.onrender.com/api/users/sa-getnewproject', {
+                const projectResponse = await axios.get('http://localhost:5000/api/users/sa-getnewproject', {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -38,7 +38,7 @@ const Activity = () => {
                 setProjects(projectResponse.data);
 
                 const taskDetailsPromises = projectResponse.data.map(async (project) => {
-                    const taskResponse = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${project._id}`, {
+                    const taskResponse = await axios.get(`http://localhost:5000/api/users/sa-tasks/${project._id}`, {
                         headers: {
                             Authorization: `Bearer ${accessToken}`
                         }

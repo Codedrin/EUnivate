@@ -32,7 +32,7 @@ const Activity_Task = () => {
                 }
 
                 // Fetch projects for the selected workspace
-                const projectResponse = await axios.get('https://eunivate-jys4.onrender.com/api/users/sa-getnewproject', {
+                const projectResponse = await axios.get('http://localhost:5000/api/users/sa-getnewproject', {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -45,7 +45,7 @@ const Activity_Task = () => {
 
                 // Fetch tasks for each project
                 const taskDetailsPromises = projectResponse.data.map(async (project) => {
-                    const response = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${project._id}`, {
+                    const response = await axios.get(`http://localhost:5000/api/users/sa-tasks/${project._id}`, {
                         headers: {
                             Authorization: `Bearer ${accessToken}`
                         }

@@ -62,7 +62,7 @@ const Verify2FAPending = () => {
       }
 
       const response = await axios.post(
-        'https://eunivate-jys4.onrender.com/api/users/verify-otp',
+        'http://localhost:5000/api/users/verify-otp',
         { userId, otp: otpCode },
         {
           headers: {
@@ -139,7 +139,7 @@ const Verify2FAPending = () => {
     }
   
     try {
-      await axios.post('https://eunivate-jys4.onrender.com/api/users/resend-otp', {
+      await axios.post('http://localhost:5000/api/users/resend-otp', {
         email: storedUser.email,
       });
       setSuccess('OTP resent successfully!');

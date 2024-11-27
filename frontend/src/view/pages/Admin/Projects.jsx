@@ -18,7 +18,7 @@ const Projects = () => {
     // Fetch projects from the backend
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/projects');
+        const response = await axios.get('http://localhost:5000/api/users/projects');
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -30,7 +30,7 @@ const Projects = () => {
 
   const handleDelete = async (projectId) => {
     try {
-      await axios.delete('https://eunivate-jys4.onrender.com/api/users/projects/${projectId}');
+      await axios.delete('http://localhost:5000/api/users/projects/${projectId}');
       setProjects(projects.filter(project => project._id !== projectId));
     } catch (error) {
       console.error('Error deleting project:', error);

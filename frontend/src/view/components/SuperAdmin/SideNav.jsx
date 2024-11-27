@@ -72,7 +72,7 @@ const SideNav = ({ isNavOpen }) => {
       }
 
             try {
-                const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/workspaces', {
+                const response = await axios.get('http://localhost:5000/api/users/workspaces', {
                     headers: { Authorization: `Bearer ${user.accessToken}` },
                 });
 
@@ -114,7 +114,7 @@ const SideNav = ({ isNavOpen }) => {
 
     try {
         const response = await axios.post(
-            'https://eunivate-jys4.onrender.com/api/users/workspace',
+            'http://localhost:5000/api/users/workspace',
             { workspaceTitle },
             { headers: { Authorization: `Bearer ${accessToken}` } }
         );

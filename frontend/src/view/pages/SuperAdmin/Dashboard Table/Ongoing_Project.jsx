@@ -30,7 +30,7 @@ const Ongoing_Project = ({ projects, taskDetails, calculateProgress }) => {
                 console.log(`Fetching projects for workspace: ${selectedWorkspace.workspaceTitle} (ID: ${selectedWorkspace._id})`);
 
                 // Fetch the ongoing projects related to the selected workspace
-                const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/sa-getnewproject', {
+                const response = await axios.get('http://localhost:5000/api/users/sa-getnewproject', {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                     },

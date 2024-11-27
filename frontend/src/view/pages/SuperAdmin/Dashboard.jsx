@@ -93,7 +93,7 @@ const Dashboard = () => {
 
         setSelectedProjectName(projectName);
         try {
-            const taskResponse = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${projectId}`);
+            const taskResponse = await axios.get(`http://localhost:5000/api/users/sa-tasks/${projectId}`);
             const tasks = taskResponse.data.data;
 
             const assignedTaskCount = tasks.length;
@@ -130,7 +130,7 @@ const Dashboard = () => {
                 const user = JSON.parse(localStorage.getItem('user'));
                 const accessToken = user ? user.accessToken : null;
     
-                const response = await axios.get('https://eunivate-jys4.onrender.com/api/users/sa-getnewproject', {
+                const response = await axios.get('http://localhost:5000/api/users/sa-getnewproject', {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -142,7 +142,7 @@ const Dashboard = () => {
                 setProjects(response.data);
 
                 const taskDetailsPromises = response.data.map(async (project) => {
-                    const taskResponse = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-tasks/${project._id}`);
+                    const taskResponse = await axios.get(`http://localhost:5000/api/users/sa-tasks/${project._id}`);
                     const tasks = taskResponse.data.data;
 
                     const attachmentsCount = tasks.reduce((total, task) => total + (task.attachment?.length || 0), 0);

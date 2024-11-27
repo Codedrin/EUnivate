@@ -58,7 +58,7 @@ const AdminContainer = ({ children }) => {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const response = await fetch('https://eunivate-jys4.onrender.com/api/users/notifications');
+                const response = await fetch('http://localhost:5000/api/users/notifications');
                 const data = await response.json();
                 setHasNewNotifications(data.hasNew);
             } catch (error) {
@@ -95,7 +95,7 @@ const AdminContainer = ({ children }) => {
     const handleBellClick = async () => {
         setHasNewNotifications(false);
         try {
-            await fetch('https://eunivate-jys4.onrender.com/api/users/notification', { method: 'GET' });
+            await fetch('http://localhost:5000/api/users/notification', { method: 'GET' });
         } catch (error) {
             console.error('Failed to fetch notifications', error);
         }

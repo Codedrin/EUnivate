@@ -65,7 +65,7 @@ const Kanban_modal = ({ isOpen, onClose, projectId, onTaskSubmit }) => {
         throw new Error('No access token found. Please log in again.');
       }
 
-      const response = await axios.get(`https://eunivate-jys4.onrender.com/api/users/sa-getnewproject/${projectId}`, {
+      const response = await axios.get(`http://localhost:5000/api/users/sa-getnewproject/${projectId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -78,7 +78,7 @@ const Kanban_modal = ({ isOpen, onClose, projectId, onTaskSubmit }) => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`https://eunivate-jys4.onrender.com/api/users/get-assignee?projectId=${projectId}`);
+      const response = await axios.get(`http://localhost:5000/api/users/get-assignee?projectId=${projectId}`);
       setMembersList(response.data.invitedUsers); 
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -113,7 +113,7 @@ const Kanban_modal = ({ isOpen, onClose, projectId, onTaskSubmit }) => {
         project: projectId,
       };
 
-      const response = await axios.post('https://eunivate-jys4.onrender.com/api/users/sa-task', newTask);
+      const response = await axios.post('http://localhost:5000/api/users/sa-task', newTask);
       onTaskSubmit(response.data);
       toast.success('Task submitted successfully!');
       resetForm();

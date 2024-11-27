@@ -19,7 +19,7 @@ const Message_Members = ({ onInvitedUsersFetched, workspaceId }) => {
         }
 
         // Fetch all users
-        const allUsersResponse = await axios.get('https://eunivate-jys4.onrender.com/api/users/', {
+        const allUsersResponse = await axios.get('http://localhost:5000/api/users/', {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -27,7 +27,7 @@ const Message_Members = ({ onInvitedUsersFetched, workspaceId }) => {
 
         // Fetch invited users for the selected workspace
         if (workspaceId) {
-          const invitedUsersResponse = await axios.get('https://eunivate-jys4.onrender.com/api/users/invited', {
+          const invitedUsersResponse = await axios.get('http://localhost:5000/api/users/invited', {
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },

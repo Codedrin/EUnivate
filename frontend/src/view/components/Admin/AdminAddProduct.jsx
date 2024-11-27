@@ -57,7 +57,7 @@ const AdminAddProduct = () => {
       };
 
       // Send the product data to the backend
-      const response = await axios.post('https://eunivate-jys4.onrender.com/api/users/addproduct', productData);
+      const response = await axios.post('http://localhost:5000/api/users/addproduct', productData);
 
       console.log(response.data);
       setLoading(false);

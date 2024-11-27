@@ -137,7 +137,7 @@ const SettingProfile_Members = () => {
 
     try {
         const response = await axios.put(
-            `https://eunivate-jys4.onrender.com/api/users/${storedUser._id}`,
+            `http://localhost:5000/api/users/${storedUser._id}`,
             updatedUser
         );
 
@@ -182,7 +182,7 @@ const SettingProfile_Members = () => {
         }
   
       const response = await axios.put(
-        `https://eunivate-jys4.onrender.com/api/users/${storedUser._id}/password`,
+        `http://localhost:5000/api/users/${storedUser._id}/password`,
         { newPassword },
         {
           headers: {
