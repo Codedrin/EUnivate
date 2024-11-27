@@ -1,74 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
-import axios from 'axios';
-import { useWorkspace } from '../../../components/SuperAdmin/workspaceContext';  // Import workspace context
 
-const Activity_Task = () => {
-    const [profilePicture, setProfilePicture] = useState('');
-    const [userName, setUserName] = useState('');
-    const [taskDetails, setTaskDetails] = useState({});
-    const [projects, setProjects] = useState([]);
-    const { selectedWorkspace } = useWorkspace();  // Get the selected workspace
-    const defaultProfilePictureUrl = 'https://www.imghost.net/ib/YgQep2KBICssXI1_1725211680.png'; // Default image URL
-
-    // Fetch user data and task details for each project
-    useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        if (storedUser) {
-            setUserName(`${storedUser.firstName} ${storedUser.lastName}`);
-            setProfilePicture(storedUser.profilePicture?.url || storedUser.profilePicture || defaultProfilePictureUrl);
-        }
-
-        const fetchProjectsAndTasks = async () => {
-            if (!selectedWorkspace) return;  // Only proceed if a workspace is selected
-
-            try {
-                const user = JSON.parse(localStorage.getItem('user'));
-                const accessToken = user ? user.accessToken : null;
-
-                if (!accessToken) {
-                    console.error('No access token found. Please log in again.');
-                    return;
-                }
-
-                // Fetch projects for the selected workspace
-                const projectResponse = await axios.get('http://localhost:5000/api/users/sa-getnewproject', {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                    },
-                    params: {
-                        workspaceId: selectedWorkspace._id,  // Filter projects by workspace ID
-                    }
-                });
-
-                setProjects(projectResponse.data);
-
-                // Fetch tasks for each project
-                const taskDetailsPromises = projectResponse.data.map(async (project) => {
-                    const response = await axios.get(`http://localhost:5000/api/users/sa-tasks/${project._id}`, {
-                        headers: {
-                            Authorization: `Bearer ${accessToken}`
-                        }
-                    });
-                    const tasks = response.data.data;
-                    return { projectId: project._id, tasks };
-                });
-
-                const details = await Promise.all(taskDetailsPromises);
-                const taskDetailsMap = details.reduce((acc, { projectId, tasks }) => {
-                    acc[projectId] = tasks;
-                    return acc;
-                }, {});
-
-                setTaskDetails(taskDetailsMap);  // Set the task details for each project
-            } catch (error) {
-                console.error('Error fetching projects and tasks:', error);
-            }
-        };
-
-        fetchProjectsAndTasks();
-    }, [selectedWorkspace]);  // Re-fetch projects and tasks when the selected workspace changes
-
+const Activity_Task = ({ allTasks, profilePicture, userName, defaultProfilePictureUrl }) => {
     const getTaskChanges = (task) => {
         let changesByUser = {};
 
