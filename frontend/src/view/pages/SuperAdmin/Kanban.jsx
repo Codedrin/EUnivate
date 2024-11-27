@@ -119,7 +119,7 @@ const Kanban = ({ projectId, projectName }) => {
   const handleDeleteTask = async (taskId) => {
     try {
       // Send DELETE request to backend
-      const response = await axios.delete(`/api/users/tasks/${taskId}`);
+      const response = await axios.delete(`https://eunivate-jys4.onrender.com/api/users/tasks/${taskId}`);
 
       // Check if the response is successful
       if (response.status === 200) {
